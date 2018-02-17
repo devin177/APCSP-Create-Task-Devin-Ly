@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8"/>
+<title>
+	head
+</title>
+</head>
+<body>
+	<canvas  id="canvas" width = "1000" height = "1000"></canvas>
+<script>
+	let canvas = document.getElementById("canvas");
+	let ctx = canvas.getContext("2d");
+	let bullet = new Image;
+	bullet.src = "bulletSprite.png";
+	ctx.drawImage(bullet, 0, 0, bullet.width, bullet.height);
+</script>
+</body>
+</html>
