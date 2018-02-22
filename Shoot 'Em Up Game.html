@@ -10,12 +10,22 @@
 		left: 0px;
 		background: transparent;
 		}
-		#canvas {
+		canvas {
 			border-style: solid;
+		}
+		#main{
+			z-index: 0;
+		}
+		#extra {
+			z-index: -1;
+			background-color:White;
+		}
+
 		</style>
 </head>
 <body style = "background-color:Black">
-	<canvas id="canvas" width="405" height="720"></canvas>
+	<canvas id="main" width="405" height="720"></canvas>
+	<canvas id="extra" width="405" height="750"></canvas>
 	<script type="text/javascript" src="New Javascript.js">
 	</script>
 </body>
