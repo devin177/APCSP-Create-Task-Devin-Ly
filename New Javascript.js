@@ -76,7 +76,7 @@ function parse_buttons(){
 //checks if the space bar is pressed and creates a bullet if it is
 function parse_gun(){
 	if(controller.space){
-		create_bullet();
+			create_bullet();
 	}
 }
 
@@ -155,7 +155,7 @@ function create_enemies(){
 	enemy.y.push(0);
 }
 
-//drAw tHE eNEmieS according to the coordinates corresponding to the (i) parameter
+//drAw tHE eNEmieS according to the coordinates corresponding to the (i) parameter which we get in the check collision, and update functions
 function draw_enemy(i){
 	ctx.drawImage(enemyImage,enemy.x[i] ,enemy.y[i], enemyImage.width/8, enemyImage.height/8);	
 }
@@ -192,15 +192,13 @@ function difficulty(){
 		clearInterval("create_enemies();");
 		score = 0;
 		setInterval("create_enemies();", 1000 - (level*25));
-		clearInterval("parse_gun();");
-		setInterval("parse_gun();", 500  - (level*10));
 	}
 }
 //function that displays your score on the screen without having to open the console and also your health and level
 function showScore(){
 	extractx.clearRect(0,0,extra.width,extra.height);
 	extractx.font = "30px Arial";
-	extractx.fillText("Score: " + score, extra.width/2-70,extra.height-1);
+	extractx.fillText("Score: " + (((level-1)*15) + score), extra.width/2-70,extra.height-1);
 	extractx.font = "30px Arial";
 	extractx.fillText("Health: " + health, 0, extra.height - 1);
 	extractx.font = "30px Arial";
@@ -223,7 +221,8 @@ function mainGameLoop(){
 	difficulty();
 	gameover();
 }
-
+//just some opening directions
+window.alert("This goal of this game is to destroy as many aliens as you can before you lose all your health. Press and hold space to fire the gun and use the arrow keys to move your character. Good luck!");
 //this parse gun is outside of the main loop because i wanted to lower
 //the fire rate of the gun to prevent lag
 //check collision and create enemies are outside MGL because i wanted to have their frequency different from the rest of the other things
